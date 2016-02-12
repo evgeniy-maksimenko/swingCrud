@@ -1,6 +1,6 @@
 package router;
 
-import dao.DaoPersonMysql;
+import dao.DaoPersonMongo;
 import model.Person;
 
 import javax.swing.table.AbstractTableModel;
@@ -8,10 +8,12 @@ import java.util.ArrayList;
 
 public class Router extends AbstractTableModel {
     public ArrayList<Person> grid = null;
-    public DaoPersonMysql model = new DaoPersonMysql();
+    //public DaoPersonMysql model = new DaoPersonMysql();
+    public DaoPersonMongo model = new DaoPersonMongo();
 
     public Router() {
         grid = model.select();
+
     }
 
     public String getColumnName(int col) {

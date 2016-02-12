@@ -28,19 +28,19 @@ public class DaoPersonMysql implements Dao {
     @Override
     public ArrayList<Person> select() {
 
-        ArrayList<Person> Person = new ArrayList<Person>();
+        ArrayList<Person> person = new ArrayList<Person>();
         try {
             ResultSet rs = this.st.executeQuery("SELECT * FROM person");
 
             while (rs.next()) {
                 Person p = new Person(rs.getInt("id"), rs.getString("fname"), rs.getString("lname"), rs.getInt("age"));
-                Person.add(p);
+                person.add(p);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return Person;
+        return person;
 
     }
 
