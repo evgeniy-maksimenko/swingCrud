@@ -1,6 +1,10 @@
 package model;
 
+import javax.persistence.*;
+
+@Entity(name="person")
 public class Person {
+    @Id
     public int id;
     public String fname;
     public String lname;

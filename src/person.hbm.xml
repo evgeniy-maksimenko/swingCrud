@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="model.Person" table="person">
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="increment"/>
+        </id>
+        <property name="fname" column="fname" type="java.lang.String"/>
+        <property name="lname" column="lname" type="java.lang.String"/>
+        <property name="age" column="age" type="java.lang.Integer"/>
+    </class>
+</hibernate-mapping>

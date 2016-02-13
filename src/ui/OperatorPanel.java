@@ -53,8 +53,8 @@ public class OperatorPanel extends JPanel {
         public void actionPerformed(ActionEvent e) {
             int id = tbl.getSelectedRow();
             if (id != -1) {
+                router.model.delete(router.grid.get(id).getId());
                 router.grid.remove(id);
-                router.model.delete(id + 1);
                 router.fireTableDataChanged();
             } else {
                 JOptionPane.showMessageDialog(null,
