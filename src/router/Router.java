@@ -1,6 +1,9 @@
 package router;
 
-import dao.DaoPersonMysqlHib;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import dao.DaoPersonMysql;
+import dao.socket.DaoPersonMysqlNetClient;
 import model.Person;
 
 import javax.swing.table.AbstractTableModel;
@@ -10,10 +13,16 @@ public class Router extends AbstractTableModel {
     public ArrayList<Person> grid = null;
     //public DaoPersonMysql model = new DaoPersonMysql();
     //public DaoPersonMongo model = new DaoPersonMongo();
-    public DaoPersonMysqlHib model = new DaoPersonMysqlHib();
+    //public DaoPersonMysqlHib model = new DaoPersonMysqlHib();
+    public DaoPersonMysqlNetClient model = new DaoPersonMysqlNetClient(this);
 
     public Router() {
+
         grid = model.select();
+
+
+
+
     }
 
     public String getColumnName(int col) {
@@ -23,6 +32,7 @@ public class Router extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
+
         return grid.size();
     }
 
