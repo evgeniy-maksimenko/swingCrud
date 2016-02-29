@@ -1,9 +1,11 @@
 package router;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import dao.DaoPersonMysql;
-import dao.socket.DaoPersonMysqlNetClient;
+//import com.google.gson.Gson;
+//import com.google.gson.reflect.TypeToken;
+//import dao.DaoPersonMysql;
+import dao.Dao;
+import dao.DaoPersonCassandra;
+//import dao.socket.DaoPersonMysqlNetClient;
 import model.Person;
 
 import javax.swing.table.AbstractTableModel;
@@ -11,18 +13,17 @@ import java.util.ArrayList;
 
 public class Router extends AbstractTableModel {
     public ArrayList<Person> grid = null;
-    //public DaoPersonMysql model = new DaoPersonMysql();
-    //public DaoPersonMongo model = new DaoPersonMongo();
-    //public DaoPersonMysqlHib model = new DaoPersonMysqlHib();
-    public DaoPersonMysqlNetClient model = new DaoPersonMysqlNetClient(this);
+    public Dao model;
+
 
     public Router() {
-
+        // model = new DaoPersonMysql();
+        // model = new DaoPersonMongo();
+        // model = new DaoPersonMysqlHib();
+        // model = new DaoPersonMysqlNetClient(this);
+        // model = new DaoPersonRedis();
+        model = new DaoPersonCassandra();
         grid = model.select();
-
-
-
-
     }
 
     public String getColumnName(int col) {
