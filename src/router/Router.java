@@ -16,6 +16,8 @@ public class Router extends AbstractTableModel {
 
 
     public Router() {
+        // model = new DaoPersonMock();
+        // model = new DaoPersonStub();
         // model = new DaoPersonMysql();
         // model = new DaoPersonMongo();
         // model = new DaoPersonMysqlHib();
