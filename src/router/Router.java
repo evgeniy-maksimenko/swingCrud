@@ -3,8 +3,7 @@ package router;
 //import com.google.gson.Gson;
 //import com.google.gson.reflect.TypeToken;
 //import dao.DaoPersonMysql;
-import dao.Dao;
-import dao.DaoPersonCassandra;
+import dao.*;
 //import dao.socket.DaoPersonMysqlNetClient;
 import model.Person;
 
@@ -22,7 +21,11 @@ public class Router extends AbstractTableModel {
         // model = new DaoPersonMysqlHib();
         // model = new DaoPersonMysqlNetClient(this);
         // model = new DaoPersonRedis();
-        model = new DaoPersonCassandra();
+        // model = new DaoPersonCassandra();
+        // model = new DaoPersonJson();
+        // model = new DaoPersonXml();
+        // model = new DaoPersonCsv();
+        model = new DaoPersonYaml();
         grid = model.select();
     }
 
